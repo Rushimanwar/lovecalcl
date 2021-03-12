@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LOVE CALCULATER</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- contact1 -->
+  <section class="w3l-simple-contact-form1">
+    <div class="contact-form section-gap">
+      <div class="wrapper">
+        <div class="text-center">
+        <h1 style="font-size: 40px; color: azure; " >LOVE CALCULATER</h1>
+      </div>
+        <div class="contact-form" style="max-width: 450px; margin: 0 auto;">
+          <div class="form-mid">
+            <form action="javascript:sendmail()" method="post">
+              <div class="field">
+                <input type="text" class="form-control" name="Name" id="Name" placeholder="Your Name" required="">
+              </div>
+              
+              <div class="field">
+                <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Lover Name"
+                  required="">
+              </div>
+              
+              <button type="submit" onclick="love()" class="btn btn-contact">Calculate</button>
+              <!-- <input type="button" class="btn btn-contact" onclick="sendmail();"  value="Send Message"> -->
+              <div class="field">
+                <input type="text" id="lover" value="Result" readonly>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /contact1 -->
+  
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+
+<script src="main.js"></script>
+<script src="app.js"></script>
+<script src="app1.js"></script>
+<script>  
+
+     function sendmail(){
+    
+			var name = $('#Name').val();
+			var email = $('#lover').val();
+			var subject = $('#Subject').val();
+      var message = $('#Message').val();
+
+			// var body = $('#body').val();
+
+			var Body='Name: '+name+'<br>Subject: '+subject+'<br>lover';
+			//console.log(name, phone, email, message);
+
+			Email.send({
+        SecureToken:"fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
+				To: 'manwarrushikesh@gmail.com',
+				From: "rnk143s@gmail.com",
+				Subject: "New message on contact from "+name,
+				Body: Body
+			}).then(
+				message =>{
+					//console.log (message);
+					if(message=='OK'){  swal("Great", "God Bless Your Relationship..!", "success", {
+        button: "Okay!",
+      });
+					}
+					else{
+						console.error (message);
+						alert('There is error at sending message. ')
+						
+					}
+
+				}
+			);
+
+
+
+		}
+
+
+    </script>
+
+<script>
+  function love(){
+      var lovedata = Math.random()*100;
+      lovedata = Math.floor(lovedata);
+      document.getElementById('lover').value = lovedata + "%";
+  };
+</script>
+
+</body>
+</html>
